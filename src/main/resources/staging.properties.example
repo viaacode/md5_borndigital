@@ -1,0 +1,11 @@
+rabbit.host=
+rabbit.port=
+rabbit.virtualhost=
+rabbit.username=
+rabbit.password=
+
+rabbit_watcher.queuename=
+rabbit_md5_request.queuename=
+rabbit_md5_response.queuename=
+rabbit_borndigital_request.queuename=
+rabbit_error.queuename=

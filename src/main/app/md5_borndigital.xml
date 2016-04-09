@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:context="http://www.springframework.org/schema/context" xmlns:amqp="http://www.mulesoft.org/schema/mule/amqp" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/amqp http://www.mulesoft.org/schema/mule/amqp/current/mule-amqp.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <context:property-placeholder location="${mule.env}.properties"/>
+    <byte-array-to-string-transformer name="Byte_Array_to_String" doc:name="Byte Array to String"/>
+    <byte-array-to-object-transformer returnClass="java.util.HashMap" name="Byte_Array_to_Object" doc:name="Byte Array to Object"/>
+    <byte-array-to-string-transformer name="Byte_Array_to_String1" doc:name="Byte Array to String"/>
+    <json:json-to-object-transformer returnClass="java.util.HashMap" name="JSON_to_Object" doc:name="JSON to Object"/>
+    <json:object-to-json-transformer name="Object_to_JSON" doc:name="Object to JSON"/>
+    <amqp:connector name="AMQP" 	validateConnections="true" host="${rabbit.host}" port="${rabbit.port}" virtualHost="${rabbit.virtualhost}" username="${rabbit.username}" password="${rabbit.password}"  prefetchCount="1" doc:name="AMQP Connector" numberOfChannels="1"/>
+    
+    <objectstore:config name="ObjectStore__Configuration" persistent="true" doc:name="ObjectStore: Configuration"/>
+    <flow name="md5_borndigitalFlow" processingStrategy="synchronous">
+        <amqp:inbound-endpoint queueName="${rabbit_watcher.queuename}"  responseTimeout="10000" connector-ref="AMQP" doc:name="Receive packages from ftp_watcher" transformer-refs="JSON_to_Object"/>
+        <set-variable variableName="i" value="#[payload.sid_package[0].file_name.substring(0, payload.sid_package[0].file_name.indexOf('.'))]" doc:name="Set index from filename"/>
+        <objectstore:store config-ref="ObjectStore__Configuration" key="#[flowVars.i]" value-ref="#[payload]" overwrite="true" doc:name="Save package"/>
+        <set-variable variableName="total" value="#[payload[&quot;sid_package&quot;].size()]" doc:name="Set total"/>
+        <objectstore:store config-ref="ObjectStore__Configuration" key="#[flowVars.i] + &quot;_todo&quot;" value-ref="#[flowVars.total]" overwrite="true" doc:name="Save total of package at index_todo"/>
+        <foreach collection="payload.sid_package" doc:name="For Each">
+            <dw:transform-message doc:name="Transform Message">
+                <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+    correlation_id: payload.file_name,
+    server:"",
+    path: payload.file_path,
+    "sourcefile": payload.file_name,
+    "expected_md5": ""
+}]]></dw:set-payload>
+            </dw:transform-message>
+            <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+            <amqp:outbound-endpoint queueName="${rabbit_md5_request.queuename}" responseTimeout="10000" connector-ref="AMQP" doc:name="AMQP"/>
+        </foreach>
+    </flow>
+    <flow name="md5_borndigitalFlow2" processingStrategy="synchronous">
+        <amqp:inbound-endpoint queueName="${rabbit_md5_response.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="AMQP" transformer-refs="JSON_to_Object"/>
+        <choice doc:name="Empty file?">
+            <when expression="#[payload.calculated_md5.equals(&quot;d41d8cd98f00b204e9800998ecf8427e&quot;) || payload.status.equals(&quot;NOK&quot;)]">
+                <set-variable variableName="i" value="#[payload.correlation_id.substring(0, payload.correlation_id.indexOf('.'))]" doc:name="Retrieve index from filename"/>
+                <objectstore:retrieve config-ref="ObjectStore__Configuration" key="#[flowVars.i]" doc:name="Retrieve package"/>
+                <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+                <amqp:outbound-endpoint queueName="${rabbit_error.queuename}" responseTimeout="10000"  connector-ref="AMQP" doc:name="Send to ERRORS"/>
+            </when>
+            <otherwise>
+                <set-variable variableName="response" value="#[payload]" doc:name="Set response"/>
+        <set-variable variableName="i" value="#[payload.correlation_id.substring(0, payload.correlation_id.indexOf('.'))]" doc:name="Retrieve index from filename"/>
+        <objectstore:retrieve config-ref="ObjectStore__Configuration" key="#[flowVars.i]" doc:name="Retrieve package"/>
+        <set-variable variableName="isFound" value="#[false]" doc:name="isFound FALSE"/>
+        <foreach collection="#[payload.sid_package]" doc:name="For Each">
+            <choice doc:name="Filename equals?">
+                <when expression="#[response.correlation_id.equals(payload.file_name)]">
+                    <expression-transformer expression="#[payload.md5=response.calculated_md5]" doc:name="Update md5"/>
+                    <set-variable variableName="isFound" value="#[true]" doc:name="isFound TRUE"/>
+                </when>
+                <otherwise>
+                    <logger message="Doesn't correspond with filename and path" level="INFO" doc:name="Logger"/>
+                </otherwise>
+            </choice>
+        </foreach>
+        <choice doc:name="isFound true?">
+            <when expression="#[flowVars.isFound]">
+                <set-variable variableName="package" value="#[payload]" doc:name="Set package"/>
+                <objectstore:retrieve config-ref="ObjectStore__Configuration" key="#[flowVars.i] + &quot;_todo&quot;" doc:name="Retrieve total"/>
+                        <logger message="Totaal: #[payload]" level="INFO" doc:name="Logger"/>
+                <choice doc:name="Total of package equals 1, so this was the last md5?">
+                    <when expression="#[payload==1]">
+                        <set-payload value="#[flowVars.package]" doc:name="Set Payload to package"/>
+                        <json:object-to-json-transformer doc:name="Object to JSON"/>
+                                <amqp:outbound-endpoint queueName="${rabbit_borndigital_request.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="AMQP-0-9"/>
+                                <logger message="Sent message" level="INFO" doc:name="Logger"/>
+                        <objectstore:remove config-ref="ObjectStore__Configuration" key="#[flowVars.i]" ignoreNotExists="true" doc:name="Remove package"/>
+                    </when>
+                    <otherwise>
+                                <logger message="Subtract total (#[payload]-1)" level="INFO" doc:name="Logger"/>
+                        <objectstore:store config-ref="ObjectStore__Configuration" key="#[flowVars.i] + &quot;_todo&quot;" value-ref="#[payload-1]" overwrite="true" doc:name="Update total minus 1"/>
+                        <objectstore:store config-ref="ObjectStore__Configuration" key="#[flowVars.i]" value-ref="#[flowVars.package]" overwrite="true" doc:name="Save package back at correlation id"/>
+                    </otherwise>
+                </choice>
+            </when>
+            <otherwise >
+                <logger message="MD5 for package is not found!" level="WARN" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+            </otherwise>
+        </choice>
+        
+    </flow>
+</mule>
