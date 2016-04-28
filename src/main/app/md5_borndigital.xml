@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:context="http://www.springframework.org/schema/context" xmlns:amqp="http://www.mulesoft.org/schema/mule/amqp" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:context="http://www.springframework.org/schema/context" xmlns:amqp="http://www.mulesoft.org/schema/mule/amqp" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
@@ -11,7 +11,9 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
 http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
 http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd">
     <context:property-placeholder location="${mule.env}.properties"/>
     <byte-array-to-string-transformer name="Byte_Array_to_String" doc:name="Byte Array to String"/>
     <byte-array-to-object-transformer returnClass="java.util.HashMap" name="Byte_Array_to_Object" doc:name="Byte Array to Object"/>
@@ -24,21 +26,33 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 <!--     <expression-filter expression="" name="KeyFound" doc:name="Expression"/> -->
     <expression-filter expression="#[payload.md5.equals(&quot;&quot;)]" nullReturnsTrue="true" name="Expression" doc:name="Expression"/>
     <expression-filter expression="#[payload.md5.equals(&quot;&quot;)]" name="MD5Set" doc:name="Expression"/>
-    <flow name="SavePackageAndOrderMD5s" processingStrategy="synchronous">
+    <db:generic-config name="Generic_Database_Configuration" url="jdbc:postgresql://${db.host}:${db.port}/${db.database}?password=${db.password}&amp;user=${db.username}" driverClassName="org.postgresql.Driver" doc:name="Generic Database Configuration"/>
+    <quartz:connector name="Quartz" validateConnections="true" doc:name="Quartz"/>
+    <flow name="SavePackageAndOrderMD5s" processingStrategy="synchronous" initialState="started">
         <amqp:inbound-endpoint queueName="${rabbit_watcher.queuename}"  responseTimeout="10000" connector-ref="AMQP" doc:name="Receive package from ftp_watcher" transformer-refs="JSON_to_Object"/>
-        <set-variable variableName="i" value="#[payload.sid_package[0].file_name.substring(0, payload.sid_package[0].file_name.indexOf('.'))]" doc:name="Set index from filename"/>
-        <objectstore:store config-ref="ObjectStore__Configuration" key="#[flowVars.i]" value-ref="#[payload]" overwrite="true" doc:name="Save package"/>
-        <foreach collection="payload.sid_package" doc:name="For Each">
+        <set-variable variableName="response" value="#[payload]" doc:name="Set response"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <db:insert config-ref="Generic_Database_Configuration" doc:name="Save package">
+            <db:parameterized-query><![CDATA[INSERT INTO md5_borndigital (package)
+VALUES (#[payload])]]></db:parameterized-query>
+        </db:insert>
+        <db:select config-ref="Generic_Database_Configuration" doc:name="Get max row">
+            <db:parameterized-query><![CDATA[select max(id)
+from md5_borndigital]]></db:parameterized-query>
+        </db:select>
+        <set-variable variableName="correlation_id" value="#[payload[0].max]" doc:name="Set correlation_id"/>
+        <set-payload value="#[flowVars.response]" doc:name="Set Payload"/>
+        <foreach collection="payload.sip_package" doc:name="For Each">
             <dw:transform-message doc:name="Transform Message">
                 <dw:set-payload><![CDATA[%dw 1.0
 %output application/json
 ---
 {
-    correlation_id: payload.file_name,
+    correlation_id: flowVars.correlation_id,
     server:"",
     path: payload.file_path,
-    "sourcefile": payload.file_name,
-    "expected_md5": ""
+    sourcefile: payload.file_name,
+    expected_md5: ""
 }]]></dw:set-payload>
             </dw:transform-message>
             <amqp:outbound-endpoint queueName="${rabbit_md5_request.queuename}" responseTimeout="10000" connector-ref="AMQP" doc:name="Request MD5" responseTransformer-refs="Byte_Array_to_String"/>
@@ -48,8 +62,13 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     <flow name="UpdatePackageWithMD5" processingStrategy="synchronous">
         <amqp:inbound-endpoint queueName="${rabbit_md5_response.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="MD5 response" transformer-refs="JSON_to_Object"/>
         <set-variable variableName="response" value="#[payload]" doc:name="Set response"/>
-        <set-variable variableName="i" value="#[payload.correlation_id.substring(0, payload.correlation_id.indexOf('.'))]" doc:name="Retrieve index from filename"/>
-        <objectstore:retrieve config-ref="ObjectStore__Configuration" key="#[flowVars.i]" doc:name="Retrieve package"/>
+        <db:select config-ref="Generic_Database_Configuration" doc:name="Retrieve package">
+            <db:parameterized-query><![CDATA[SELECT *
+FROM md5_borndigital
+WHERE id=#[flowVars.response.correlation_id]]]></db:parameterized-query>
+        </db:select>
+        <set-payload value="#[payload[0].package]" doc:name="Set Payload"/>
+        <json:json-to-object-transformer doc:name="JSON to Object" returnClass="java.util.HashMap"/>
         <choice doc:name="Empty file or NOK?">
             <when expression="#[flowVars.response.calculated_md5.equals(&quot;d41d8cd98f00b204e9800998ecf8427e&quot;) || flowVars.response.status.equals(&quot;NOK&quot;)]">
                 <amqp:outbound-endpoint queueName="${rabbit_error.queuename}" responseTimeout="10000"  connector-ref="AMQP" doc:name="Send to ERRORS" transformer-refs="Object_to_JSON"/>
@@ -58,9 +77,9 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 <!--         <filter ref="KeyFound" doc:name="Package/key not exists -&gt; response is not of this app run"/> -->
         <set-variable variableName="isFound" value="#[false]" doc:name="isFound FALSE"/>
                 <set-variable variableName="allMD5Done" value="#[true]" doc:name="Set allMD5Done TRUE"/>
-        <foreach collection="#[payload.sid_package]" doc:name="For Each">
+        <foreach collection="#[payload.sip_package]" doc:name="For Each">
             <choice doc:name="Filename equals?">
-                <when expression="#[response.correlation_id.equals(payload.file_name)]">
+                <when expression="#[flowVars.response.filename.equals(payload.file_name)]">
                     <expression-transformer expression="#[payload.md5=response.calculated_md5]" doc:name="Update md5"/>
                     <set-variable variableName="isFound" value="#[true]" doc:name="isFound TRUE"/>
                 </when>
@@ -75,26 +94,36 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
                 <choice doc:name="All MD5s are calculated?">
                     <when expression="#[flowVars.allMD5Done]">
                                 <amqp:outbound-endpoint queueName="${rabbit_borndigital_request.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="Send to born digital" transformer-refs="Object_to_JSON"/>
-                                <logger message="Sent message" level="INFO" doc:name="Logger"/>
-                        <objectstore:remove config-ref="ObjectStore__Configuration" key="#[flowVars.i]" ignoreNotExists="true" doc:name="Remove package"/>
+                                <logger message="Message is send to born digital" level="INFO" doc:name="Logger"/>
+                                <!-- <db:delete config-ref="Generic_Database_Configuration" doc:name="Remove package">
+                                    <db:parameterized-query><![CDATA[DELETE FROM md5_borndigital
+WHERE #[flowVars.row]]]></db:parameterized-query>
+                                </db:delete> -->
                     </when>
                     <otherwise>
-                                <logger message="Package not ready: update" level="INFO" doc:name="Logger"/>
-                        <objectstore:store config-ref="ObjectStore__Configuration" key="#[flowVars.i]" value-ref="#[payload]" overwrite="true" doc:name="Save package back at correlation id"/>
+                                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                                <logger message="Package not ready: update #[payload]" level="INFO" doc:name="Logger"/>
+                                <db:update config-ref="Generic_Database_Configuration" doc:name="Save package">
+                                    <db:parameterized-query><![CDATA[UPDATE md5_borndigital
+SET package = #[payload]
+WHERE id=#[flowVars.response.correlation_id];]]></db:parameterized-query>
+                                </db:update>
                     </otherwise>
                 </choice>
             </when>
             <otherwise >
+                        <amqp:outbound-endpoint queueName="${rabbit_not_in_package.queuename}" responseTimeout="10000" connector-ref="AMQP" transformer-refs="Object_to_JSON" doc:name="Send to NOT FOUND"/>
                 <logger message="File #[flowVars.response.file_name] not found! (package: #[flowVars.i])" level="WARN" doc:name="File not found in package"/>
             </otherwise>
         </choice>
-                <amqp:acknowledge-message doc:name="AMQP Acknowledge Message"/>
-            </otherwise>
+        </otherwise>
         </choice>
+        <amqp:acknowledge-message doc:name="AMQP Acknowledge Message"/>
+        
         <choice-exception-strategy doc:name="Choice Exception Strategy">
         	
     		<catch-exception-strategy when="exception.causedBy(org.mule.api.store.ObjectDoesNotExistException)" doc:name="KeyNotFound">
-                <logger message="Key not found in datastore: #[flowVars.response]" level="INFO" doc:name="Logger"/>
+                <logger message="Key not found in database: #[flowVars.response]" level="INFO" doc:name="Logger"/>
                 <amqp:outbound-endpoint queueName="${rabbit_error.queuename}" responseTimeout="10000" connector-ref="AMQP" transformer-refs="Object_to_JSON" doc:name="Send to ERRORS"/>
                 <amqp:acknowledge-message doc:name="AMQP Acknowledge Message"/>
             </catch-exception-strategy>

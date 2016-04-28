@@ -9,3 +9,10 @@ rabbit_md5_request.queuename=
 rabbit_md5_response.queuename=
 rabbit_borndigital_request.queuename=
 rabbit_error.queuename=
+rabbit_not_in_package.queuename=
+
+db.host=
+db.port=
+db.username=
+db.password=
+db.database=
