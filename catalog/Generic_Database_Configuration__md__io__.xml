@@ -19,13 +19,7 @@ WHERE #[flowVars.response.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -37,7 +31,13 @@ WHERE #[flowVars.response.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -66,13 +66,7 @@ WHERE #[flowVars.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -84,7 +78,13 @@ WHERE #[flowVars.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -112,13 +112,7 @@ WHERE #[flowVars.response.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -130,7 +124,13 @@ WHERE #[flowVars.response.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -159,13 +159,7 @@ WHERE #[flowVars.response.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -177,7 +171,13 @@ WHERE #[flowVars.response.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -205,13 +205,7 @@ WHERE #[flowVars.response.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -223,7 +217,13 @@ WHERE #[flowVars.response.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -252,13 +252,7 @@ WHERE #[flowVars.row]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -270,7 +264,13 @@ WHERE #[flowVars.row]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -304,13 +304,7 @@ VALUES (#[payload])</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -322,7 +316,13 @@ VALUES (#[payload])</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -350,13 +350,7 @@ VALUES (#[payload])</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -368,7 +362,13 @@ VALUES (#[payload])</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -397,13 +397,7 @@ VALUES (#[flowVars.i], #[payload])</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -415,7 +409,13 @@ VALUES (#[flowVars.i], #[payload])</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -444,13 +444,7 @@ VALUES (, &apos;test&apos;)</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -462,7 +456,13 @@ VALUES (, &apos;test&apos;)</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -491,13 +491,7 @@ VALUES (#[payload])</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -509,7 +503,13 @@ VALUES (#[payload])</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -537,13 +537,7 @@ VALUES (#[payload])</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -555,7 +549,13 @@ VALUES (#[payload])</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -584,13 +584,7 @@ VALUES (#[flowVars.i], #[payload])</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -602,7 +596,13 @@ VALUES (#[flowVars.i], #[payload])</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -671,13 +671,7 @@ from md5_borndigital</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -689,7 +683,96 @@ from md5_borndigital</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>OUTBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+              </properties>
+            </output>
+          </org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+        </entry>
+        <entry>
+          <string>select count(1)
+from md5_borndigital
+where package LIKE (&apos;%&apos; || #[flowVars.package] || &apos;%&apos;)</string>
+          <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+            <output class="org.mule.common.metadata.DefaultMetaData">
+              <payload class="org.mule.common.metadata.DefaultListMetaDataModel">
+                <dataType>LIST</dataType>
+                <metaDataModelPropertiesManager>
+                  <properties/>
+                </metaDataModelPropertiesManager>
+                <model class="org.mule.common.metadata.DefaultDefinedMapMetaDataModel">
+                  <dataType>MAP</dataType>
+                  <metaDataModelPropertiesManager>
+                    <properties/>
+                  </metaDataModelPropertiesManager>
+                  <fields>
+                    <org.mule.common.metadata.DefaultMetaDataField>
+                      <name>count</name>
+                      <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                        <dataType>LONG</dataType>
+                        <metaDataModelPropertiesManager>
+                          <properties/>
+                        </metaDataModelPropertiesManager>
+                      </model>
+                      <accessType>READ_WRITE</accessType>
+                      <metaDataFieldPropertyManager>
+                        <properties>
+                          <org.mule.common.metadata.field.property.dsql.DsqlSelectMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlWhereMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlOrderMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlQueryOperatorsMetaDataFieldProperty>
+                            <supportedOperators>
+                              <org.mule.common.query.expression.LessOperator/>
+                              <org.mule.common.query.expression.LessOrEqualsOperator/>
+                              <org.mule.common.query.expression.EqualsOperator/>
+                              <org.mule.common.query.expression.GreaterOperator/>
+                              <org.mule.common.query.expression.GreaterOrEqualsOperator/>
+                              <org.mule.common.query.expression.NotEqualsOperator/>
+                            </supportedOperators>
+                          </org.mule.common.metadata.field.property.dsql.DsqlQueryOperatorsMetaDataFieldProperty>
+                        </properties>
+                      </metaDataFieldPropertyManager>
+                    </org.mule.common.metadata.DefaultMetaDataField>
+                  </fields>
+                </model>
+                <isArray>false</isArray>
+              </payload>
+              <properties>
+                <entry>
                   <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>SESSION</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -753,13 +836,7 @@ from md5_borndigital</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -771,7 +848,13 @@ from md5_borndigital</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -864,13 +947,7 @@ WHERE id=#[flowVars.response.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -882,7 +959,179 @@ WHERE id=#[flowVars.response.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>OUTBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+              </properties>
+            </output>
+          </org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+        </entry>
+        <entry>
+          <string>select count(1)
+from md5_borndigital
+where package LIKE &apos;%#[flowVars.package]%&apos;</string>
+          <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+            <output class="org.mule.common.metadata.DefaultMetaData">
+              <payload class="org.mule.common.metadata.DefaultListMetaDataModel">
+                <dataType>LIST</dataType>
+                <metaDataModelPropertiesManager>
+                  <properties/>
+                </metaDataModelPropertiesManager>
+                <model class="org.mule.common.metadata.DefaultDefinedMapMetaDataModel">
+                  <dataType>MAP</dataType>
+                  <metaDataModelPropertiesManager>
+                    <properties/>
+                  </metaDataModelPropertiesManager>
+                  <fields>
+                    <org.mule.common.metadata.DefaultMetaDataField>
+                      <name>count</name>
+                      <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                        <dataType>LONG</dataType>
+                        <metaDataModelPropertiesManager>
+                          <properties/>
+                        </metaDataModelPropertiesManager>
+                      </model>
+                      <accessType>READ_WRITE</accessType>
+                      <metaDataFieldPropertyManager>
+                        <properties>
+                          <org.mule.common.metadata.field.property.dsql.DsqlSelectMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlWhereMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlOrderMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlQueryOperatorsMetaDataFieldProperty>
+                            <supportedOperators>
+                              <org.mule.common.query.expression.LessOperator/>
+                              <org.mule.common.query.expression.LessOrEqualsOperator/>
+                              <org.mule.common.query.expression.EqualsOperator/>
+                              <org.mule.common.query.expression.GreaterOperator/>
+                              <org.mule.common.query.expression.GreaterOrEqualsOperator/>
+                              <org.mule.common.query.expression.NotEqualsOperator/>
+                            </supportedOperators>
+                          </org.mule.common.metadata.field.property.dsql.DsqlQueryOperatorsMetaDataFieldProperty>
+                        </properties>
+                      </metaDataFieldPropertyManager>
+                    </org.mule.common.metadata.DefaultMetaDataField>
+                  </fields>
+                </model>
+                <isArray>false</isArray>
+              </payload>
+              <properties>
+                <entry>
                   <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>SESSION</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>OUTBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+              </properties>
+            </output>
+          </org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+        </entry>
+        <entry>
+          <string>select count(1)
+from md5_borndigital
+where package LIKE &apos;%&apos; || #[flowVars.package] || &apos;%&apos;</string>
+          <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+            <output class="org.mule.common.metadata.DefaultMetaData">
+              <payload class="org.mule.common.metadata.DefaultListMetaDataModel">
+                <dataType>LIST</dataType>
+                <metaDataModelPropertiesManager>
+                  <properties/>
+                </metaDataModelPropertiesManager>
+                <model class="org.mule.common.metadata.DefaultDefinedMapMetaDataModel">
+                  <dataType>MAP</dataType>
+                  <metaDataModelPropertiesManager>
+                    <properties/>
+                  </metaDataModelPropertiesManager>
+                  <fields>
+                    <org.mule.common.metadata.DefaultMetaDataField>
+                      <name>count</name>
+                      <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                        <dataType>LONG</dataType>
+                        <metaDataModelPropertiesManager>
+                          <properties/>
+                        </metaDataModelPropertiesManager>
+                      </model>
+                      <accessType>READ_WRITE</accessType>
+                      <metaDataFieldPropertyManager>
+                        <properties>
+                          <org.mule.common.metadata.field.property.dsql.DsqlSelectMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlWhereMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlOrderMetaDataFieldProperty/>
+                          <org.mule.common.metadata.field.property.dsql.DsqlQueryOperatorsMetaDataFieldProperty>
+                            <supportedOperators>
+                              <org.mule.common.query.expression.LessOperator/>
+                              <org.mule.common.query.expression.LessOrEqualsOperator/>
+                              <org.mule.common.query.expression.EqualsOperator/>
+                              <org.mule.common.query.expression.GreaterOperator/>
+                              <org.mule.common.query.expression.GreaterOrEqualsOperator/>
+                              <org.mule.common.query.expression.NotEqualsOperator/>
+                            </supportedOperators>
+                          </org.mule.common.metadata.field.property.dsql.DsqlQueryOperatorsMetaDataFieldProperty>
+                        </properties>
+                      </metaDataFieldPropertyManager>
+                    </org.mule.common.metadata.DefaultMetaDataField>
+                  </fields>
+                </model>
+                <isArray>false</isArray>
+              </payload>
+              <properties>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>SESSION</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -915,13 +1164,7 @@ SET value #[payload]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -933,7 +1176,13 @@ SET value #[payload]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -962,13 +1211,7 @@ WHERE #[flowVars.response.correlation_id]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -980,7 +1223,13 @@ WHERE #[flowVars.response.correlation_id]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1009,13 +1258,7 @@ WHERE id=#[flowVars.response.correlation_id];</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1027,7 +1270,60 @@ WHERE id=#[flowVars.response.correlation_id];</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>OUTBOUND</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+              </properties>
+            </output>
+          </org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+        </entry>
+        <entry>
+          <string>UPDATE md5_borndigital
+SET package = #[flowVars.message]
+WHERE id=#[flowVars.response.correlation_id];</string>
+          <org.mule.tooling.metadata.cache.DefaultMetadataCacheEntry>
+            <output class="org.mule.common.metadata.DefaultMetaData">
+              <payload class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                <dataType>DOUBLE</dataType>
+                <metaDataModelPropertiesManager>
+                  <properties/>
+                </metaDataModelPropertiesManager>
+              </payload>
+              <properties>
+                <entry>
                   <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>SESSION</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1055,13 +1351,7 @@ SET package = #[payload]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1073,7 +1363,13 @@ SET package = #[payload]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1101,13 +1397,7 @@ SET package = &apos;#[payload]&apos;</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1119,7 +1409,13 @@ SET package = &apos;#[payload]&apos;</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1147,13 +1443,7 @@ SET value = #[payload]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1165,7 +1455,13 @@ SET value = #[payload]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1193,13 +1489,7 @@ SET package = #[payload]</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1211,7 +1501,13 @@ SET package = #[payload]</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1240,13 +1536,7 @@ WHERE #[flowVars.response.correlation_id];</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1258,7 +1548,13 @@ WHERE #[flowVars.response.correlation_id];</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1287,13 +1583,7 @@ WHERE id=#[flowVars.response.correlation_id];</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1305,7 +1595,13 @@ WHERE id=#[flowVars.response.correlation_id];</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1333,13 +1629,7 @@ SET package = &apos;#[payload]&apos;</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1351,7 +1641,13 @@ SET package = &apos;#[payload]&apos;</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1380,13 +1676,7 @@ WHERE id=#[flowVars.response.correlation_id];</string>
               </payload>
               <properties>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
-                  <org.mule.common.metadata.MetaDataProperties>
-                    <fields/>
-                  </org.mule.common.metadata.MetaDataProperties>
-                </entry>
-                <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>
@@ -1398,7 +1688,13 @@ WHERE id=#[flowVars.response.correlation_id];</string>
                   </org.mule.common.metadata.MetaDataProperties>
                 </entry>
                 <entry>
-                  <org.mule.common.metadata.MetaDataPropertyScope>RECORD</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataPropertyScope>FLOW</org.mule.common.metadata.MetaDataPropertyScope>
+                  <org.mule.common.metadata.MetaDataProperties>
+                    <fields/>
+                  </org.mule.common.metadata.MetaDataProperties>
+                </entry>
+                <entry>
+                  <org.mule.common.metadata.MetaDataPropertyScope>INBOUND</org.mule.common.metadata.MetaDataPropertyScope>
                   <org.mule.common.metadata.MetaDataProperties>
                     <fields/>
                   </org.mule.common.metadata.MetaDataProperties>

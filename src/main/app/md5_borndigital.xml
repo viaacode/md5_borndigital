@@ -24,8 +24,8 @@ http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/q
     
     <objectstore:config name="ObjectStore__Configuration" persistent="true" doc:name="ObjectStore: Configuration"/>
 <!--     <expression-filter expression="" name="KeyFound" doc:name="Expression"/> -->
-    <expression-filter expression="#[payload.md5.equals(&quot;&quot;)]" nullReturnsTrue="true" name="Expression" doc:name="Expression"/>
     <expression-filter expression="#[payload.md5.equals(&quot;&quot;)]" name="MD5Set" doc:name="Expression"/>
+    <expression-filter expression="#[!payload[0].count.equals(0)]" name="countZero" doc:name="Expression"/>
     <db:generic-config name="Generic_Database_Configuration" url="jdbc:postgresql://${db.host}:${db.port}/${db.database}?password=${db.password}&amp;user=${db.username}" driverClassName="org.postgresql.Driver" doc:name="Generic Database Configuration"/>
     <quartz:connector name="Quartz" validateConnections="true" doc:name="Quartz"/>
     <flow name="SavePackageAndOrderMD5s" processingStrategy="synchronous" initialState="started">
@@ -62,7 +62,18 @@ from md5_borndigital]]></db:parameterized-query>
     <flow name="UpdatePackageWithMD5" processingStrategy="synchronous">
         <amqp:inbound-endpoint queueName="${rabbit_md5_response.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="MD5 response" transformer-refs="JSON_to_Object"/>
         <set-variable variableName="response" value="#[payload]" doc:name="Set response"/>
-        <db:select config-ref="Generic_Database_Configuration" doc:name="Retrieve package">
+        <set-variable variableName="package" value="#[flowVars.response.filename.substring(0,flowVars.response.filename.indexOf('.'))]" doc:name="Set package"/>
+        <db:select config-ref="Generic_Database_Configuration" doc:name="Check package already processed">
+            <db:parameterized-query><![CDATA[select count(1)
+from md5_borndigital
+where package LIKE ('%' || #[flowVars.package] || '%')]]></db:parameterized-query>
+        </db:select>
+        <choice doc:name="First time of package? (otherwise new record)">
+            <when expression="#[payload[0].count&gt;1]">
+                <logger level="INFO" doc:name="Ignore" message="Package probably already send. #[payload]"/>
+            </when>
+            <otherwise>
+            	<db:select config-ref="Generic_Database_Configuration" doc:name="Retrieve package">
             <db:parameterized-query><![CDATA[SELECT *
 FROM md5_borndigital
 WHERE id=#[flowVars.response.correlation_id]]]></db:parameterized-query>
@@ -80,8 +91,8 @@ WHERE id=#[flowVars.response.correlation_id]]]></db:parameterized-query>
         <foreach collection="#[payload.sip_package]" doc:name="For Each">
             <choice doc:name="Filename equals?">
                 <when expression="#[flowVars.response.filename.equals(payload.file_name)]">
-                    <expression-transformer expression="#[payload.md5=response.calculated_md5]" doc:name="Update md5"/>
-                    <set-variable variableName="isFound" value="#[true]" doc:name="isFound TRUE"/>
+                            <set-variable variableName="isFound" value="#[true]" doc:name="isFound TRUE"/>
+                            <expression-transformer expression="#[payload.md5=response.calculated_md5]" doc:name="Update md5"/>
                 </when>
                 <otherwise>
                             <filter ref="MD5Set" doc:name="MD5 Empty?"/>
@@ -89,18 +100,21 @@ WHERE id=#[flowVars.response.correlation_id]]]></db:parameterized-query>
                 </otherwise>
             </choice>
         </foreach>
-        <choice doc:name="isFound true?">
-            <when expression="#[flowVars.isFound]">
-                <choice doc:name="All MD5s are calculated?">
-                    <when expression="#[flowVars.allMD5Done]">
-                                <amqp:outbound-endpoint queueName="${rabbit_borndigital_request.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="Send to born digital" transformer-refs="Object_to_JSON"/>
-                                <logger message="Message is send to born digital" level="INFO" doc:name="Logger"/>
-                                <!-- <db:delete config-ref="Generic_Database_Configuration" doc:name="Remove package">
-                                    <db:parameterized-query><![CDATA[DELETE FROM md5_borndigital
-WHERE #[flowVars.row]]]></db:parameterized-query>
-                                </db:delete> -->
-                    </when>
-                    <otherwise>
+                <choice doc:name="isFound true?">
+                    <when expression="#[flowVars.isFound]">
+                        <choice doc:name="All MD5s are calculated?">
+                            <when expression="#[flowVars.allMD5Done]">
+                                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                                <set-variable variableName="message" value="#[payload]" doc:name="Set message"/>
+                                <amqp:outbound-endpoint queueName="${rabbit_borndigital_request.queuename}" responseTimeout="10000" exchange-pattern="request-response" connector-ref="AMQP" doc:name="Send to born digital"/>
+                                <logger message="Message is send to born digital #[payload]" level="INFO" doc:name="Logger"/>
+                                <db:update config-ref="Generic_Database_Configuration" doc:name="Save package">
+                                    <db:parameterized-query><![CDATA[UPDATE md5_borndigital
+SET package = #[flowVars.message]
+WHERE id=#[flowVars.response.correlation_id];]]></db:parameterized-query>
+                                </db:update>
+                            </when>
+                            <otherwise>
                                 <json:object-to-json-transformer doc:name="Object to JSON"/>
                                 <logger message="Package not ready: update #[payload]" level="INFO" doc:name="Logger"/>
                                 <db:update config-ref="Generic_Database_Configuration" doc:name="Save package">
@@ -108,15 +122,17 @@ WHERE #[flowVars.row]]]></db:parameterized-query>
 SET package = #[payload]
 WHERE id=#[flowVars.response.correlation_id];]]></db:parameterized-query>
                                 </db:update>
+                            </otherwise>
+                        </choice>
+                    </when>
+                    <otherwise>
+                        <amqp:outbound-endpoint queueName="${rabbit_not_in_package.queuename}" responseTimeout="10000" connector-ref="AMQP" transformer-refs="Object_to_JSON" doc:name="Send to NOT FOUND"/>
+                        <logger message="File #[flowVars.response.file_name] not found! (package: #[flowVars.i])" level="WARN" doc:name="File not found in package"/>
                     </otherwise>
                 </choice>
-            </when>
-            <otherwise >
-                        <amqp:outbound-endpoint queueName="${rabbit_not_in_package.queuename}" responseTimeout="10000" connector-ref="AMQP" transformer-refs="Object_to_JSON" doc:name="Send to NOT FOUND"/>
-                <logger message="File #[flowVars.response.file_name] not found! (package: #[flowVars.i])" level="WARN" doc:name="File not found in package"/>
-            </otherwise>
-        </choice>
         </otherwise>
+        </choice>
+            </otherwise>
         </choice>
         <amqp:acknowledge-message doc:name="AMQP Acknowledge Message"/>
         

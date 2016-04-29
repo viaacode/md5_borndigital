@@ -1,6 +1,6 @@
 staging.properties
 production.properties
-
+catalog/*
 # ------------------------------------------------------------------------------ #
 # Java defaults (https://github.com/github/gitignore/blob/master/Java.gitignore) #
 # ------------------------------------------------------------------------------ #
